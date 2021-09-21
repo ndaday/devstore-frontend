@@ -31,7 +31,7 @@ class SignUpPage extends StatelessWidget {
                 FormInputWidget(
                   labelText: 'Full Name',
                   hintText: 'Your Full Name',
-                  iconField: Icon(Icons.person),
+                  iconField: Icon(Icons.person, color: primaryColor),
                   obscureText: false,
                   autoFocus: true,
                 ),
@@ -39,7 +39,7 @@ class SignUpPage extends StatelessWidget {
                 FormInputWidget(
                   labelText: 'Username',
                   hintText: 'Your Username',
-                  iconField: Icon(Icons.account_circle),
+                  iconField: Icon(Icons.account_circle, color: primaryColor),
                   obscureText: false,
                   autoFocus: true,
                 ),
@@ -47,7 +47,7 @@ class SignUpPage extends StatelessWidget {
                 FormInputWidget(
                   labelText: 'Email Address',
                   hintText: 'Your Email Address',
-                  iconField: Icon(Icons.mail),
+                  iconField: Icon(Icons.mail, color: primaryColor),
                   obscureText: false,
                   autoFocus: true,
                 ),
@@ -55,7 +55,7 @@ class SignUpPage extends StatelessWidget {
                 FormInputWidget(
                   labelText: 'Password',
                   hintText: 'Your Password',
-                  iconField: Icon(Icons.lock),
+                  iconField: Icon(Icons.lock, color: primaryColor),
                   obscureText: true,
                   autoFocus: true,
                 ),
@@ -63,7 +63,7 @@ class SignUpPage extends StatelessWidget {
                 CustomButton(
                   nameButton: 'Sign Up',
                   onPressed: () {
-                    final snackBar = SnackBar(content: Text('Sign In'));
+                    final snackBar = SnackBar(content: Text('Sign Up'));
                     ScaffoldMessenger.of(context).showSnackBar(snackBar);
                   },
                 ),

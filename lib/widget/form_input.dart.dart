@@ -37,8 +37,14 @@ class FormInputWidget extends StatelessWidget {
             style: titleTextStyle,
             obscureText: obscureText,
             autofocus: autoFocus,
+            cursorColor: primaryColor,
             decoration: InputDecoration(
-              border: OutlineInputBorder(),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: Colors.white),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: primaryColor),
+              ),
               hintText: hintText,
               hintStyle: subTextStyle,
               prefixIcon: iconField,

@@ -22,7 +22,10 @@ class FooterWidget extends StatelessWidget {
           Text(footerText, style: subTextStyle),
           TextButton(
             onPressed: onPressed,
-            child: Text(buttonText),
+            child: Text(
+              buttonText,
+              style: TextStyle(color: primaryColor),
+            ),
           )
         ],
       ),

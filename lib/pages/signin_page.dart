@@ -29,7 +29,7 @@ class SignInPage extends StatelessWidget {
               FormInputWidget(
                 labelText: 'Email Address',
                 hintText: 'Your Email Address',
-                iconField: Icon(Icons.mail),
+                iconField: Icon(Icons.mail, color: primaryColor),
                 obscureText: false,
                 autoFocus: true,
               ),
@@ -37,7 +37,7 @@ class SignInPage extends StatelessWidget {
               FormInputWidget(
                 labelText: 'Password',
                 hintText: 'Your Password',
-                iconField: Icon(Icons.lock),
+                iconField: Icon(Icons.lock, color: primaryColor),
                 obscureText: true,
                 autoFocus: true,
               ),

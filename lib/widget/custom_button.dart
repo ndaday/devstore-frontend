@@ -1,3 +1,4 @@
+import 'package:devstore/theme.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
@@ -12,10 +13,13 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
+    return Container(
       width: double.infinity,
-      height: 50,
       child: ElevatedButton(
+        style: ButtonStyle(
+          backgroundColor: MaterialStateProperty.all(primaryColor),
+          padding: MaterialStateProperty.all(EdgeInsets.all(15)),
+        ),
         child: Text(nameButton),
         onPressed: onPressed,
       ),
