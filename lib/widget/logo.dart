@@ -9,14 +9,16 @@ class Logo extends StatelessWidget {
     return Center(
       child: Container(
         color: secondaryColor,
-        margin: EdgeInsets.only(top: 20),
-        padding: EdgeInsets.all(10),
+        padding: EdgeInsets.all(12),
         child: Container(
           decoration:
-              BoxDecoration(border: Border.all(color: primaryColor, width: 5)),
+              BoxDecoration(border: Border.all(color: bgColor, width: 10)),
           child: Text(
             'DEVSTORE',
-            style: primaryTextStyle.copyWith(letterSpacing: 10),
+            style: titleTextStyle.copyWith(
+              letterSpacing: 10,
+              fontSize: 20,
+            ),
           ),
         ),
       ),

@@ -1,9 +1,21 @@
+import 'dart:async';
+
 import 'package:devstore/theme.dart';
 import 'package:devstore/widget/logo.dart';
 import 'package:flutter/material.dart';
 
-class SplashPage extends StatelessWidget {
-  const SplashPage({Key? key}) : super(key: key);
+class SplashPage extends StatefulWidget {
+  @override
+  State<SplashPage> createState() => _SplashPageState();
+}
+
+class _SplashPageState extends State<SplashPage> {
+  @override
+  void initState() {
+    Timer(
+        Duration(seconds: 30), () => Navigator.pushNamed(context, '/sign-in'));
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -11,9 +23,20 @@ class SplashPage extends StatelessWidget {
       backgroundColor: bgColor,
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Logo(),
-            Image.asset('assets/box1.jpeg'),
+            SizedBox(height: 20),
+            Container(
+              width: 200,
+              height: 200,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  image: AssetImage('assets/icon.png'),
+                ),
+              ),
+            ),
           ],
         ),
       ),
