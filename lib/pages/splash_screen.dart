@@ -12,15 +12,14 @@ class SplashPage extends StatefulWidget {
 class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
-    Timer(
-        Duration(seconds: 30), () => Navigator.pushNamed(context, '/sign-in'));
+    Timer(Duration(seconds: 3), () => Navigator.pushNamed(context, '/sign-in'));
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: bgColor,
+      backgroundColor: backgroundPrimary,
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

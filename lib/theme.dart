@@ -5,8 +5,12 @@ Color primaryColor = Color(0xff7678ED);
 Color secondaryColor = Color(0xff38abbe);
 Color alertColor = Color(0xffDF2935);
 Color priceColor = Color(0xff2c96f1);
+Color white = Colors.white70;
+Color black54 = Colors.black54;
 
-Color bgColor = Color(0xff58485b);
+Color backgroundPrimary = Color(0xff58485b);
+Color backgroundDark = Color(0xff2f2032);
+Color backgroundLight = Color(0xff857488);
 
 Color primaryTextColor = Color(0xffffffff);
 Color secondaryTextColor = Color(0xffc4c4c4);

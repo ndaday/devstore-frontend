@@ -11,8 +11,8 @@ class Logo extends StatelessWidget {
         color: secondaryColor,
         padding: EdgeInsets.all(12),
         child: Container(
-          decoration:
-              BoxDecoration(border: Border.all(color: bgColor, width: 10)),
+          decoration: BoxDecoration(
+              border: Border.all(color: backgroundPrimary, width: 10)),
           child: Text(
             'DEVSTORE',
             style: titleTextStyle.copyWith(

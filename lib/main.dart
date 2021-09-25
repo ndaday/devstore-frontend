@@ -1,6 +1,8 @@
-import 'package:devstore/pages/signin_page.dart';
-import 'package:devstore/pages/signup_page.dart';
-import 'package:devstore/pages/splash_page.dart';
+import 'package:devstore/pages/main_page.dart';
+import 'package:devstore/pages/sign_in_page.dart';
+import 'package:devstore/pages/sign_up_page.dart';
+import 'package:devstore/pages/splash_screen.dart';
+import 'package:devstore/theme.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -15,12 +17,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         debugShowCheckedModeBanner: false,
-        theme: ThemeData(textTheme: GoogleFonts.latoTextTheme()),
+        theme: ThemeData(
+          textTheme: GoogleFonts.latoTextTheme(),
+          primaryColor: primaryColor,
+        ),
         title: 'DevStore',
         routes: {
           '/splash': (context) => SplashPage(),
           '/sign-in': (context) => SignInPage(),
-          '/': (context) => SignUpPage(),
+          '/sign-up': (context) => SignUpPage(),
+          '/': (context) => MainPage(),
         });
   }
 }

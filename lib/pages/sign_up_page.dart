@@ -13,7 +13,7 @@ class SignUpPage extends StatelessWidget {
     var deviceHeight = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: bgColor,
+      backgroundColor: backgroundPrimary,
       resizeToAvoidBottomInset: true,
       body: SingleChildScrollView(
         child: SafeArea(

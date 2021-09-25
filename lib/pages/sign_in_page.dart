@@ -10,10 +10,8 @@ class SignInPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var deviceHeight = MediaQuery.of(context).size.height;
-
     return Scaffold(
-      backgroundColor: bgColor,
+      backgroundColor: backgroundPrimary,
       resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: Container(
