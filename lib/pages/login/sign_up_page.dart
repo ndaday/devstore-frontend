@@ -63,8 +63,8 @@ class SignUpPage extends StatelessWidget {
                 CustomButton(
                   nameButton: 'Sign Up',
                   onPressed: () {
-                    final snackBar = SnackBar(content: Text('Sign Up'));
-                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                    Navigator.pushNamedAndRemoveUntil(
+                        context, '/main-page', (Route<dynamic> route) => false);
                   },
                 ),
                 Spacer(),

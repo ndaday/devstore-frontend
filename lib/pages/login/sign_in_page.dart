@@ -43,8 +43,8 @@ class SignInPage extends StatelessWidget {
               CustomButton(
                 nameButton: 'Sign In',
                 onPressed: () {
-                  final snackBar = SnackBar(content: Text('Sign In'));
-                  ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                  Navigator.pushNamedAndRemoveUntil(
+                      context, '/main-page', (Route<dynamic> route) => false);
                 },
               ),
               Spacer(),
@@ -52,7 +52,7 @@ class SignInPage extends StatelessWidget {
                 footerText: 'Dont have an account?',
                 buttonText: 'Sign Up',
                 onPressed: () {
-                  Navigator.pop(context);
+                  Navigator.pushNamed(context, '/sign-up');
                 },
               ),
             ],

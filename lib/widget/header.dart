@@ -13,19 +13,21 @@ class HeaderWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Text(
-          titleText,
-          style: titleTextStyle.copyWith(fontSize: 24, fontWeight: medium),
-        ),
-        SizedBox(height: 4),
-        Text(
-          subtitleText,
-          style: subTextStyle,
-        ),
-      ],
+        child: Expanded(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Text(
+            titleText,
+            style: titleTextStyle.copyWith(fontSize: 24, fontWeight: medium),
+          ),
+          SizedBox(height: 4),
+          Text(
+            subtitleText,
+            style: subTextStyle,
+          ),
+        ],
+      ),
     ));
   }
 }

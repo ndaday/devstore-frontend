@@ -34,6 +34,8 @@ class _MainPageState extends State<MainPage> {
     _pageController.jumpToPage(selectedIndex);
   }
 
+  DateTime timeBackPressed = DateTime.now();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -57,28 +59,28 @@ class _MainPageState extends State<MainPage> {
             items: [
               BottomNavigationBarItem(
                 icon: Container(
-                  margin: EdgeInsets.only(top: 15),
+                  margin: EdgeInsets.symmetric(vertical: 4),
                   child: Icon(Icons.home),
                 ),
                 label: 'Home',
               ),
               BottomNavigationBarItem(
                 icon: Container(
-                  margin: EdgeInsets.only(top: 15),
+                  margin: EdgeInsets.symmetric(vertical: 4),
                   child: Icon(Icons.chat),
                 ),
                 label: 'Chat',
               ),
               BottomNavigationBarItem(
                 icon: Container(
-                  margin: EdgeInsets.only(top: 15),
+                  margin: EdgeInsets.symmetric(vertical: 4),
                   child: Icon(Icons.favorite),
                 ),
                 label: 'Favorite',
               ),
               BottomNavigationBarItem(
                 icon: Container(
-                  margin: EdgeInsets.only(top: 15),
+                  margin: EdgeInsets.symmetric(vertical: 4),
                   child: Icon(Icons.person),
                 ),
                 label: 'Account',

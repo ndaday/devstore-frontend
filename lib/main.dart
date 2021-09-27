@@ -1,12 +1,15 @@
+import 'package:devstore/pages/login/sign_in_page.dart';
+import 'package:devstore/pages/login/sign_up_page.dart';
 import 'package:devstore/pages/main_page.dart';
-import 'package:devstore/pages/sign_in_page.dart';
-import 'package:devstore/pages/sign_up_page.dart';
 import 'package:devstore/pages/splash_screen.dart';
 import 'package:devstore/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 void main() {
+  SystemChrome.setSystemUIOverlayStyle(
+      SystemUiOverlayStyle(statusBarColor: backgroundPrimary));
   runApp(MyApp());
 }
 
@@ -23,10 +26,10 @@ class MyApp extends StatelessWidget {
         ),
         title: 'DevStore',
         routes: {
-          '/splash': (context) => SplashPage(),
+          '/': (context) => SplashPage(),
           '/sign-in': (context) => SignInPage(),
           '/sign-up': (context) => SignUpPage(),
-          '/': (context) => MainPage(),
+          '/main-page': (context) => MainPage(),
         });
   }
 }
