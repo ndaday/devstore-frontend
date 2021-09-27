@@ -12,7 +12,7 @@ class ProductCard extends StatelessWidget {
       margin: EdgeInsets.only(right: 24),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: primaryColor,
+        color: white,
       ),
       child: Column(
         children: [
