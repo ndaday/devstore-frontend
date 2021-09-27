@@ -21,6 +21,12 @@ class ProductCard extends StatelessWidget {
             width: 215,
             height: 150,
           ),
+          Text('Hiking'),
+          Text(
+            'COURT VISION 2.0',
+            overflow: TextOverflow.ellipsis,
+          ),
+          Text('\$68'),
         ],
       ),
     );
