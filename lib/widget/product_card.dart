@@ -12,7 +12,7 @@ class ProductCard extends StatelessWidget {
       margin: EdgeInsets.only(right: 24),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        color: primaryColor,
+        color: white,
       ),
       child: Column(
         children: [
@@ -21,6 +21,12 @@ class ProductCard extends StatelessWidget {
             width: 215,
             height: 150,
           ),
+          Text('Hiking'),
+          Text(
+            'COURT VISION 2.0',
+            overflow: TextOverflow.ellipsis,
+          ),
+          Text('\$68'),
         ],
       ),
     );

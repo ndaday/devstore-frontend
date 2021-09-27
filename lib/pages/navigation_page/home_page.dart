@@ -1,7 +1,7 @@
 import 'package:devstore/theme.dart';
 import 'package:devstore/widget/categories.dart';
 import 'package:devstore/widget/header.dart';
-import 'package:devstore/widget/product_card.dart';
+import 'package:devstore/widget/popular_product.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -25,7 +25,7 @@ class HomePage extends StatelessWidget {
             ],
           ),
           CategoriesList(),
-          ProductCard(),
+          PopularProduct(),
         ],
       ),
     );
