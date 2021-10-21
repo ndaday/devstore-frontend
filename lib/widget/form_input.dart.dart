@@ -7,6 +7,7 @@ class FormInputWidget extends StatelessWidget {
   final Widget iconField;
   final bool obscureText;
   final bool autoFocus;
+  final TextEditingController controller;
   // final String validatorText;
 
   const FormInputWidget({
@@ -16,6 +17,7 @@ class FormInputWidget extends StatelessWidget {
     required this.iconField,
     required this.obscureText,
     required this.autoFocus,
+    required this.controller,
   }) : super(key: key);
 
   @override
@@ -32,8 +34,7 @@ class FormInputWidget extends StatelessWidget {
           ),
           SizedBox(height: 8),
           TextFormField(
-            // validator: (email) =>
-            //     EmailValidator.validate(email!) ? null : validatorText,
+            controller: controller,
             style: titleTextStyle,
             obscureText: obscureText,
             autofocus: autoFocus,

@@ -1,16 +1,47 @@
+import 'package:devstore/providers/auth_provider.dart';
 import 'package:devstore/theme.dart';
 import 'package:devstore/widget/custom_button.dart';
 import 'package:devstore/widget/footer.dart';
 import 'package:devstore/widget/form_input.dart.dart';
 import 'package:devstore/widget/header.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class SignUpPage extends StatelessWidget {
-  const SignUpPage({Key? key}) : super(key: key);
+  final TextEditingController nameController = TextEditingController(text: '');
+  final TextEditingController usernameController =
+      TextEditingController(text: '');
+  final TextEditingController emailController = TextEditingController(text: '');
+  final TextEditingController passwordController =
+      TextEditingController(text: '');
 
   @override
   Widget build(BuildContext context) {
     var deviceHeight = MediaQuery.of(context).size.height;
+
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
+
+    handleSignUp() async {
+      if (await authProvider.register(
+        name: nameController.text,
+        username: usernameController.text,
+        email: emailController.text,
+        password: passwordController.text,
+      )) {
+        Navigator.pushNamedAndRemoveUntil(
+            context, '/main-page', (Route<dynamic> route) => false);
+      } else {
+        ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(
+            content: Text(
+              'Failed to Register',
+              textAlign: TextAlign.center,
+            ),
+            backgroundColor: alertColor,
+          ),
+        );
+      }
+    }
 
     return Scaffold(
       backgroundColor: backgroundPrimary,
@@ -34,6 +65,7 @@ class SignUpPage extends StatelessWidget {
                   iconField: Icon(Icons.person, color: primaryColor),
                   obscureText: false,
                   autoFocus: true,
+                  controller: nameController,
                 ),
                 SizedBox(height: 15),
                 FormInputWidget(
@@ -42,6 +74,7 @@ class SignUpPage extends StatelessWidget {
                   iconField: Icon(Icons.account_circle, color: primaryColor),
                   obscureText: false,
                   autoFocus: true,
+                  controller: usernameController,
                 ),
                 SizedBox(height: 15),
                 FormInputWidget(
@@ -50,6 +83,7 @@ class SignUpPage extends StatelessWidget {
                   iconField: Icon(Icons.mail, color: primaryColor),
                   obscureText: false,
                   autoFocus: true,
+                  controller: emailController,
                 ),
                 SizedBox(height: 15),
                 FormInputWidget(
@@ -58,14 +92,12 @@ class SignUpPage extends StatelessWidget {
                   iconField: Icon(Icons.lock, color: primaryColor),
                   obscureText: true,
                   autoFocus: true,
+                  controller: passwordController,
                 ),
                 SizedBox(height: 30),
                 CustomButton(
                   nameButton: 'Sign Up',
-                  onPressed: () {
-                    Navigator.pushNamedAndRemoveUntil(
-                        context, '/main-page', (Route<dynamic> route) => false);
-                  },
+                  onPressed: handleSignUp,
                 ),
                 Spacer(),
                 FooterWidget(

@@ -1,6 +1,7 @@
 import 'package:devstore/theme.dart';
 import 'package:devstore/widget/categories.dart';
 import 'package:devstore/widget/header.dart';
+import 'package:devstore/widget/new_arrivals.dart';
 import 'package:devstore/widget/popular_product.dart';
 import 'package:flutter/material.dart';
 
@@ -26,6 +27,7 @@ class HomePage extends StatelessWidget {
           ),
           CategoriesList(),
           PopularProduct(),
+          NewArrivals(),
         ],
       ),
     );
