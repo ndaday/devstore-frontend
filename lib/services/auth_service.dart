@@ -3,7 +3,7 @@ import 'package:devstore/models/user_model.dart';
 import 'package:http/http.dart' as http;
 
 class AuthService {
-  String baseUrl = 'http://ikayu.herokuapp.com/api';
+  String baseUrl = 'https://shamo-backend.buildwithangga.id/api';
 
   Future<UserModel> register({
     String? name,

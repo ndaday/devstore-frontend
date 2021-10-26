@@ -9,18 +9,18 @@ class ProductModel {
   String? tag;
   CategoryModel? category;
   DateTime? createdAt;
-  DateTime? updateAt;
+  DateTime? updatedAt;
   List<GalleryModel>? galleries;
 
   ProductModel({
-    this.id,
+    required this.id,
     this.name,
     this.price,
     this.description,
     this.tag,
     this.category,
     this.createdAt,
-    this.updateAt,
+    this.updatedAt,
     this.galleries,
   });
 
@@ -31,10 +31,10 @@ class ProductModel {
       'price': price,
       'description': description,
       'tag': tag,
-      'category': category?.toJson(),
-      'galleries': galleries?.map((gallery) => gallery.toJson()).toList(),
-      'createdAt': createdAt?.toString(),
-      'updateAt': updateAt?.toString(),
+      'category': category!.toJson(),
+      'galleries': galleries!.map((gallery) => gallery.toJson()).toList(),
+      'created_at': createdAt.toString(),
+      'updated_at': updatedAt.toString(),
     };
   }
 
@@ -45,10 +45,10 @@ class ProductModel {
     description = json['description'];
     tag = json['tag'];
     category = CategoryModel.fromJson(json['category']);
-    galleries = json['galleries']
+    galleries = (json['galleries'])
         .map<GalleryModel>((gallery) => GalleryModel.fromJson(gallery))
         .toList();
-    createdAt = DateTime.parse(json['createdAt']);
-    updateAt = DateTime.parse(json['updateAt']);
+    createdAt = DateTime.parse(json['created_at']);
+    updatedAt = DateTime.parse(json['updated_at']);
   }
 }

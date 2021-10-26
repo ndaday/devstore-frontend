@@ -14,11 +14,16 @@ class _SplashPageState extends State<SplashPage> {
   void initState() {
     getInit();
 
+    // Timer(
+    //     Duration(seconds: 3),
+    //     () => Navigator.pushNamedAndRemoveUntil(
+    //         context, '/sign-in', (Route<dynamic> route) => false));
+
     super.initState();
   }
 
   getInit() async {
-    Provider.of<ProductProvider>(context, listen: false).getProducts();
+    await Provider.of<ProductProvider>(context, listen: false).getProducts();
     Navigator.pushNamedAndRemoveUntil(
         context, '/sign-in', (Route<dynamic> route) => false);
   }
