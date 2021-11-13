@@ -1,8 +1,9 @@
 class CategoryModel {
   int? id;
   String? name;
+
   CategoryModel({
-    this.id,
+    required this.id,
     this.name,
   });
 

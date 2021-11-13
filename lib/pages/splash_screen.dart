@@ -1,3 +1,4 @@
+import 'package:devstore/providers/category_provider.dart';
 import 'package:devstore/providers/product_provider.dart';
 import 'package:devstore/theme.dart';
 import 'package:devstore/widget/logo.dart';
@@ -24,6 +25,7 @@ class _SplashPageState extends State<SplashPage> {
 
   getInit() async {
     await Provider.of<ProductProvider>(context, listen: false).getProducts();
+    await Provider.of<CategoryProvider>(context, listen: false).getCategories();
     Navigator.pushNamedAndRemoveUntil(
         context, '/sign-in', (Route<dynamic> route) => false);
   }

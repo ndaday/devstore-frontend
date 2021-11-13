@@ -3,6 +3,7 @@ import 'package:devstore/pages/login/sign_up_page.dart';
 import 'package:devstore/pages/main_page.dart';
 import 'package:devstore/pages/splash_screen.dart';
 import 'package:devstore/providers/auth_provider.dart';
+import 'package:devstore/providers/category_provider.dart';
 import 'package:devstore/providers/product_provider.dart';
 import 'package:devstore/theme.dart';
 import 'package:flutter/material.dart';
@@ -28,6 +29,9 @@ class MyApp extends StatelessWidget {
         ),
         ChangeNotifierProvider(
           create: (context) => ProductProvider(),
+        ),
+        ChangeNotifierProvider(
+          create: (context) => CategoryProvider(),
         ),
       ],
       child: MaterialApp(

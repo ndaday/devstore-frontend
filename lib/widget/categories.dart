@@ -1,36 +1,29 @@
+import 'package:devstore/providers/category_provider.dart';
 import 'package:devstore/theme.dart';
+import 'package:devstore/widget/category_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class CategoriesList extends StatelessWidget {
-  final categories = List<String>.generate(7, (i) => 'Category $i');
-  CategoriesList({Key? key}) : super(key: key);
+  const CategoriesList({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    CategoryProvider categoryProvider = Provider.of<CategoryProvider>(context);
+
     return Container(
       margin: EdgeInsets.only(top: 12),
-      height: 30,
-      child: ListView.builder(
-        shrinkWrap: true,
-        physics: ScrollPhysics(),
+      child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
-        itemCount: categories.length,
-        itemBuilder: (BuildContext context, int index) {
-          return Container(
-              margin: EdgeInsets.only(right: 14),
-              padding: EdgeInsets.symmetric(horizontal: 6),
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(12),
-                color: primaryColor,
-              ),
-              child: Text(categories[index],
-                  style: titleTextStyle.copyWith(
-                    fontSize: 14,
-                    fontWeight: medium,
-                  )));
-        },
+        child: Row(
+          mainAxisSize: MainAxisSize.max,
+          children: categoryProvider.categories
+              .map((categoryItem) => CategoryCard(
+                    categoryItem: categoryItem,
+                  ))
+              .toList(),
+        ),
       ),
     );
   }

@@ -12,7 +12,7 @@ class PopularProduct extends StatelessWidget {
     ProductProvider productProvider = Provider.of<ProductProvider>(context);
 
     return Container(
-      margin: EdgeInsets.only(top: 14),
+      margin: EdgeInsets.only(top: 12),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
