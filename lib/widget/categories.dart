@@ -1,5 +1,4 @@
 import 'package:devstore/providers/category_provider.dart';
-import 'package:devstore/theme.dart';
 import 'package:devstore/widget/category_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

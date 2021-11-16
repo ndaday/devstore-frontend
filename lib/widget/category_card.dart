@@ -18,12 +18,13 @@ class CategoryCard extends StatelessWidget {
       margin: EdgeInsets.only(right: 12),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(15),
-        color: white,
+        color: primaryColor,
       ),
       child: TextButton(
         onPressed: () {},
         child: Text(
           categoryItem.name!,
+          style: TextStyle(color: primaryTextColor, fontWeight: semiBold),
         ),
       ),
     );

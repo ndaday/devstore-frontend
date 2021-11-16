@@ -1,12 +1,16 @@
+import 'package:devstore/providers/product_provider.dart';
 import 'package:devstore/theme.dart';
 import 'package:devstore/widget/product_tile.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class NewArrivals extends StatelessWidget {
   const NewArrivals({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    ProductProvider productProvider = Provider.of<ProductProvider>(context);
+
     return Container(
       margin: EdgeInsets.only(top: 14),
       child: Column(
@@ -18,9 +22,18 @@ class NewArrivals extends StatelessWidget {
                 fontSize: 18,
                 fontWeight: semiBold,
               )),
-          ProductTile(),
-          ProductTile(),
-          ProductTile(),
+          SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Column(
+              children: productProvider.products
+                  .map(
+                    (product) => ProductTile(
+                      productTile: product,
+                    ),
+                  )
+                  .toList(),
+            ),
+          ),
         ],
       ),
     );

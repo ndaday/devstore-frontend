@@ -1,8 +1,10 @@
+import 'package:devstore/models/product_model.dart';
 import 'package:devstore/theme.dart';
 import 'package:flutter/material.dart';
 
 class ProductTile extends StatelessWidget {
-  const ProductTile({Key? key}) : super(key: key);
+  final ProductModel productTile;
+  const ProductTile({Key? key, required this.productTile}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -12,11 +14,18 @@ class ProductTile extends StatelessWidget {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(20),
-            child: Image.asset(
-              'assets/shoes_1.png',
+            child: Image.network(
+              productTile.galleries![0].url!,
               width: 120,
               height: 120,
               fit: BoxFit.cover,
+              errorBuilder: (context, error, stackTrace) {
+                print(error);
+                return Icon(
+                  Icons.broken_image,
+                  size: 48,
+                );
+              },
             ),
           ),
           SizedBox(width: 12),
@@ -26,14 +35,14 @@ class ProductTile extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text('Hiking'),
+                Text(productTile.category!.name!),
                 Text(
-                  'COURT VISION 2.0',
+                  productTile.name!,
                   style: titleTextStyle.copyWith(
                       fontWeight: semiBold, fontSize: 16),
                   overflow: TextOverflow.ellipsis,
                 ),
-                Text('\$68', style: priceTextStyle),
+                Text('\$${productTile.price!}', style: priceTextStyle),
               ],
             ),
           )
