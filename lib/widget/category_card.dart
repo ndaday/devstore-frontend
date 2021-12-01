@@ -14,17 +14,23 @@ class CategoryCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       height: 40,
-      width: 100,
+      width: 120,
       margin: EdgeInsets.only(right: 12),
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(15),
-        color: primaryColor,
-      ),
-      child: TextButton(
+      child: ElevatedButton(
+        style: ElevatedButton.styleFrom(
+          primary: primaryColor,
+          onPrimary: white,
+          textStyle: TextStyle(
+              inherit: true, color: primaryTextColor, fontWeight: semiBold),
+          shape: StadiumBorder(),
+        ).copyWith(
+            backgroundColor: MaterialStateProperty.resolveWith((states) =>
+                states.any((element) => element == MaterialState.pressed)
+                    ? primaryColor
+                    : Colors.grey)),
         onPressed: () {},
         child: Text(
           categoryItem.name!,
-          style: TextStyle(color: primaryTextColor, fontWeight: semiBold),
         ),
       ),
     );

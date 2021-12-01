@@ -11,18 +11,32 @@ class CategoriesList extends StatelessWidget {
   Widget build(BuildContext context) {
     CategoryProvider categoryProvider = Provider.of<CategoryProvider>(context);
 
+    // return Container(
+    //   margin: EdgeInsets.only(top: 12),
+    //   child:
+    //   SingleChildScrollView(
+    //     scrollDirection: Axis.horizontal,
+    //     child: Row(
+    //       mainAxisSize: MainAxisSize.max,
+    //       children: categoryProvider.categories
+    //           .map((categoryItem) => CategoryCard(
+    //                 categoryItem: categoryItem,
+    //               ))
+    //           .toList(),
+    //     ),
+    //   ),
+    // );
     return Container(
+      height: 45,
+      width: MediaQuery.of(context).size.width,
       margin: EdgeInsets.only(top: 12),
-      child: SingleChildScrollView(
+      child: ListView(
         scrollDirection: Axis.horizontal,
-        child: Row(
-          mainAxisSize: MainAxisSize.max,
-          children: categoryProvider.categories
-              .map((categoryItem) => CategoryCard(
-                    categoryItem: categoryItem,
-                  ))
-              .toList(),
-        ),
+        children: categoryProvider.categories
+            .map((categoryItem) => CategoryCard(
+                  categoryItem: categoryItem,
+                ))
+            .toList(),
       ),
     );
   }
