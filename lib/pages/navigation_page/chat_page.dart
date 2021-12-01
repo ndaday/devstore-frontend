@@ -1,3 +1,4 @@
+import 'package:devstore/theme.dart';
 import 'package:flutter/material.dart';
 
 class ChatPage extends StatelessWidget {
@@ -5,6 +6,16 @@ class ChatPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(child: Text('Chat'));
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Message Support'),
+        centerTitle: true,
+        backgroundColor: backgroundPrimary,
+        elevation: 0,
+      ),
+      body: Container(
+        child: Text('Chat Page'),
+      ),
+    );
   }
 }

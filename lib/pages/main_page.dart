@@ -39,6 +39,7 @@ class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
       backgroundColor: backgroundPrimary,
       floatingActionButton: CartButton(),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
@@ -47,7 +48,7 @@ class _MainPageState extends State<MainPage> {
         child: BottomAppBar(
           shape: CircularNotchedRectangle(),
           notchMargin: 8,
-          clipBehavior: Clip.antiAlias,
+          clipBehavior: Clip.antiAliasWithSaveLayer,
           child: BottomNavigationBar(
             backgroundColor: backgroundDark,
             type: BottomNavigationBarType.fixed,

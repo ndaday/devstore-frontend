@@ -25,7 +25,7 @@ class _CustomBottomNavState extends State<CustomBottomNav> {
       child: BottomAppBar(
         shape: CircularNotchedRectangle(),
         notchMargin: 8,
-        clipBehavior: Clip.antiAlias,
+        clipBehavior: Clip.antiAliasWithSaveLayer,
         child: BottomNavigationBar(
           backgroundColor: secondaryColor,
           type: BottomNavigationBarType.fixed,
