@@ -1,8 +1,9 @@
-import 'package:devstore/providers/product_provider.dart';
 import 'package:devstore/theme.dart';
-import 'package:devstore/widget/product_tile.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../providers/product_provider.dart';
+import 'product_tile.dart';
 
 class NewArrivals extends StatelessWidget {
   const NewArrivals({Key? key}) : super(key: key);

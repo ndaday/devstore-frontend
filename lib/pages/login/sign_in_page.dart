@@ -1,11 +1,12 @@
-import 'package:devstore/providers/auth_provider.dart';
 import 'package:devstore/theme.dart';
-import 'package:devstore/widget/custom_button.dart';
-import 'package:devstore/widget/footer.dart';
-import 'package:devstore/widget/form_input.dart.dart';
-import 'package:devstore/widget/header.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../providers/auth_provider.dart';
+import '../../widgets/custom_button.dart';
+import '../../widgets/footer.dart';
+import '../../widgets/form_input.dart';
+import '../../widgets/header.dart';
 
 class SignInPage extends StatelessWidget {
   SignInPage({Key? key}) : super(key: key);
@@ -17,13 +18,20 @@ class SignInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
     handleSignIn() async {
+      showLoaderDialog(context);
       if (await authProvider.login(
         email: emailController.text,
         password: passwordController.text,
       )) {
+        // await Provider.of<ProductProvider>(context, listen: false)
+        //     .getProducts();
+        // await Provider.of<CategoryProvider>(context, listen: false)
+        //     .getCategories();
+        hideLoaderDialog(context);
         Navigator.pushNamedAndRemoveUntil(
             context, '/main-page', (Route<dynamic> route) => false);
       } else {
+        hideLoaderDialog(context);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
@@ -85,5 +93,28 @@ class SignInPage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  showLoaderDialog(BuildContext context) {
+    AlertDialog alert = AlertDialog(
+      content: new Row(
+        children: [
+          CircularProgressIndicator(),
+          Container(
+              margin: EdgeInsets.only(left: 7), child: Text("Signing...")),
+        ],
+      ),
+    );
+    showDialog(
+      barrierDismissible: false,
+      context: context,
+      builder: (BuildContext context) {
+        return alert;
+      },
+    );
+  }
+
+  hideLoaderDialog(BuildContext context) {
+    return Navigator.pop(context);
   }
 }

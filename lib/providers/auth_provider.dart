@@ -1,6 +1,7 @@
-import 'package:devstore/models/user_model.dart';
-import 'package:devstore/services/auth_service.dart';
 import 'package:flutter/cupertino.dart';
+
+import '../models/user_model.dart';
+import '../services/auth_service.dart';
 
 class AuthProvider with ChangeNotifier {
   late UserModel _user;
@@ -44,6 +45,17 @@ class AuthProvider with ChangeNotifier {
         password: password,
       );
 
+      _user = user;
+      return true;
+    } catch (e) {
+      print(e);
+      return false;
+    }
+  }
+
+  Future<bool> logout() async {
+    try {
+      UserModel user = await AuthService().logout();
       _user = user;
       return true;
     } catch (e) {

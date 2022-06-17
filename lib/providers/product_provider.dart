@@ -1,6 +1,7 @@
-import 'package:devstore/models/product_model.dart';
-import 'package:devstore/services/product_service.dart';
 import 'package:flutter/cupertino.dart';
+
+import '../models/product_model.dart';
+import '../services/product_service.dart';
 
 class ProductProvider with ChangeNotifier {
   List<ProductModel> _products = [];

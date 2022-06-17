@@ -1,7 +1,8 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:devstore/models/product_model.dart';
 import 'package:devstore/theme.dart';
 import 'package:flutter/material.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+
+import '../models/product_model.dart';
 
 class ProductCard extends StatelessWidget {
   final ProductModel productItem;

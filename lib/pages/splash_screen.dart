@@ -1,9 +1,10 @@
-import 'package:devstore/providers/category_provider.dart';
-import 'package:devstore/providers/product_provider.dart';
 import 'package:devstore/theme.dart';
-import 'package:devstore/widget/logo.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../widgets/logo.dart';
+import '../providers/category_provider.dart';
+import '../providers/product_provider.dart';
 
 class SplashPage extends StatefulWidget {
   @override
@@ -14,12 +15,10 @@ class _SplashPageState extends State<SplashPage> {
   @override
   void initState() {
     getInit();
-
     // Timer(
-    //     Duration(seconds: 3),
+    //     Duration(seconds: 2),
     //     () => Navigator.pushNamedAndRemoveUntil(
     //         context, '/sign-in', (Route<dynamic> route) => false));
-
     super.initState();
   }
 

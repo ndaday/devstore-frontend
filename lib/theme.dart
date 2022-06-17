@@ -20,10 +20,12 @@ TextStyle titleTextStyle = GoogleFonts.lato(color: primaryTextColor);
 TextStyle subTextStyle = GoogleFonts.lato(color: secondaryTextColor);
 TextStyle priceTextStyle = GoogleFonts.lato(color: priceColor);
 TextStyle alertTextStyle = GoogleFonts.lato(color: alertColor);
+TextStyle whiteTextStyle = GoogleFonts.lato(color: white70);
 
 EdgeInsets marginAll = EdgeInsets.all(30);
 
 EdgeInsets marginTop = EdgeInsets.only(top: 24);
+EdgeInsets marginTop14 = EdgeInsets.only(top: 14);
 EdgeInsets marginBottom = EdgeInsets.only(bottom: 30);
 
 EdgeInsets marginHorizontal = EdgeInsets.symmetric(horizontal: 30);
@@ -31,8 +33,10 @@ EdgeInsets marginVertical = EdgeInsets.symmetric(vertical: 30);
 
 EdgeInsets paddingAll = EdgeInsets.all(18);
 EdgeInsets paddingLeft = EdgeInsets.only(left: 14);
+EdgeInsets paddingTop = EdgeInsets.only(top: 14);
 
 EdgeInsets paddingHorizon = EdgeInsets.symmetric(horizontal: 24);
+EdgeInsets paddingHorizon14 = EdgeInsets.symmetric(horizontal: 14);
 EdgeInsets paddingVertical = EdgeInsets.symmetric(vertical: 24);
 
 FontWeight light = FontWeight.w300;

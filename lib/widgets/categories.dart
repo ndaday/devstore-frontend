@@ -1,8 +1,9 @@
-import 'package:devstore/providers/category_provider.dart';
-import 'package:devstore/widget/category_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../providers/category_provider.dart';
+import 'category_card.dart';
 
 class CategoriesList extends StatelessWidget {
   const CategoriesList({Key? key}) : super(key: key);

@@ -1,6 +1,7 @@
-import 'package:devstore/models/category_model.dart';
 import 'package:devstore/theme.dart';
 import 'package:flutter/material.dart';
+
+import '../models/category_model.dart';
 
 class CategoryCard extends StatelessWidget {
   final CategoryModel categoryItem;
@@ -25,7 +26,7 @@ class CategoryCard extends StatelessWidget {
           shape: StadiumBorder(),
         ).copyWith(
             backgroundColor: MaterialStateProperty.resolveWith((states) =>
-                states.any((element) => element == MaterialState.pressed)
+                states.any((element) => element == MaterialState.selected)
                     ? primaryColor
                     : Colors.grey)),
         onPressed: () {},

@@ -1,6 +1,7 @@
-import 'package:devstore/models/category_model.dart';
-import 'package:devstore/services/category_service.dart';
 import 'package:flutter/cupertino.dart';
+
+import '../models/category_model.dart';
+import '../services/category_service.dart';
 
 class CategoryProvider with ChangeNotifier {
   List<CategoryModel> _categories = [];

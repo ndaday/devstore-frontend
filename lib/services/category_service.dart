@@ -1,7 +1,8 @@
 import 'dart:convert';
 
-import 'package:devstore/models/category_model.dart';
 import 'package:http/http.dart' as http;
+
+import '../models/category_model.dart';
 
 class CategoryService {
   String baseUrl = 'https://shamo-backend.buildwithangga.id/api';

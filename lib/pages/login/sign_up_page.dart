@@ -1,11 +1,14 @@
-import 'package:devstore/providers/auth_provider.dart';
 import 'package:devstore/theme.dart';
-import 'package:devstore/widget/custom_button.dart';
-import 'package:devstore/widget/footer.dart';
-import 'package:devstore/widget/form_input.dart.dart';
-import 'package:devstore/widget/header.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
+import '../../providers/auth_provider.dart';
+import '../../providers/category_provider.dart';
+import '../../providers/product_provider.dart';
+import '../../widgets/custom_button.dart';
+import '../../widgets/footer.dart';
+import '../../widgets/form_input.dart';
+import '../../widgets/header.dart';
 
 class SignUpPage extends StatelessWidget {
   final TextEditingController nameController = TextEditingController(text: '');
@@ -28,6 +31,10 @@ class SignUpPage extends StatelessWidget {
         email: emailController.text,
         password: passwordController.text,
       )) {
+        await Provider.of<ProductProvider>(context, listen: false)
+            .getProducts();
+        await Provider.of<CategoryProvider>(context, listen: false)
+            .getCategories();
         Navigator.pushNamedAndRemoveUntil(
             context, '/main-page', (Route<dynamic> route) => false);
       } else {
