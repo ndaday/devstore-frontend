@@ -1,3 +1,4 @@
+import 'package:devstore/widgets/loader_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -9,6 +10,7 @@ class AccountPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    AuthProvider authProvider = Provider.of<AuthProvider>(context);
     return Container(
         child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
@@ -17,8 +19,10 @@ class AccountPage extends StatelessWidget {
         Text('Account'),
         CustomButton(
           nameButton: 'Logout',
-          onPressed: () {
-            Provider.of<AuthProvider>(context, listen: false).logout();
+          onPressed: () async {
+            LoaderDialog(loaderText: 'Loging out').showLoaderDialog(context);
+            await authProvider.logout();
+            LoaderDialog(loaderText: '').hideLoaderDialog(context);
             Navigator.pushNamedAndRemoveUntil(
                 context, '/main-page', (Route<dynamic> route) => false);
           },

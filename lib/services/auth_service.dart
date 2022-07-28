@@ -65,11 +65,12 @@ class AuthService {
     token = jsonDecode(response.body)['data'];
     _authToken = token['access_token'];
 
-    SharedPreferences localStorage = await SharedPreferences.getInstance();
-    localStorage.setString('token', _authToken);
-    getToken = localStorage.getString('token');
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    pref.setString('token', _authToken);
+    getToken = pref.getString('token');
 
     print(response.body);
+    print('token: $getToken');
 
     if (response.statusCode == 200) {
       var data = jsonDecode(response.body)['data'];
@@ -83,6 +84,9 @@ class AuthService {
   }
 
   Future logout() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    getToken = pref.getString('token');
+    print(getToken);
     var url = '$baseUrl/logout';
     var headers = {
       'Content-type': 'application/json',
@@ -100,8 +104,7 @@ class AuthService {
     print(response.body);
 
     if (response.statusCode == 200) {
-      getToken.remove('token');
-      print(getToken);
+      pref.remove('token');
       return true;
     } else {
       throw Exception('Failed to Logout');

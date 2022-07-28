@@ -1,11 +1,11 @@
 import 'package:devstore/theme.dart';
 import 'package:flutter/material.dart';
 
-import '../../custom_bottom_nav/cart_button.dart';
-import '../../pages/navigation_page/account_page.dart';
-import '../../pages/navigation_page/chat_page.dart';
-import '../../pages/navigation_page/home_page.dart';
-import '../../pages/navigation_page/wishlist_page.dart';
+import '../widgets/cart_button.dart';
+import 'navigation_page/account_page.dart';
+import 'navigation_page/chat_page.dart';
+import 'navigation_page/home_page.dart';
+import 'navigation_page/wishlist_page.dart';
 
 class MainPage extends StatefulWidget {
   const MainPage({Key? key}) : super(key: key);

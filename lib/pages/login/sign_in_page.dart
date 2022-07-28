@@ -1,4 +1,5 @@
 import 'package:devstore/theme.dart';
+import 'package:devstore/widgets/loader_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -18,20 +19,22 @@ class SignInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
     handleSignIn() async {
-      showLoaderDialog(context);
+      LoaderDialog(
+        loaderText: 'Signing',
+      ).showLoaderDialog(context);
       if (await authProvider.login(
         email: emailController.text,
         password: passwordController.text,
       )) {
-        // await Provider.of<ProductProvider>(context, listen: false)
-        //     .getProducts();
-        // await Provider.of<CategoryProvider>(context, listen: false)
-        //     .getCategories();
-        hideLoaderDialog(context);
+        LoaderDialog(
+          loaderText: '',
+        ).hideLoaderDialog(context);
         Navigator.pushNamedAndRemoveUntil(
             context, '/main-page', (Route<dynamic> route) => false);
       } else {
-        hideLoaderDialog(context);
+        LoaderDialog(
+          loaderText: '',
+        ).hideLoaderDialog(context);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
@@ -93,28 +96,5 @@ class SignInPage extends StatelessWidget {
         ),
       ),
     );
-  }
-
-  showLoaderDialog(BuildContext context) {
-    AlertDialog alert = AlertDialog(
-      content: new Row(
-        children: [
-          CircularProgressIndicator(),
-          Container(
-              margin: EdgeInsets.only(left: 7), child: Text("Signing...")),
-        ],
-      ),
-    );
-    showDialog(
-      barrierDismissible: false,
-      context: context,
-      builder: (BuildContext context) {
-        return alert;
-      },
-    );
-  }
-
-  hideLoaderDialog(BuildContext context) {
-    return Navigator.pop(context);
   }
 }

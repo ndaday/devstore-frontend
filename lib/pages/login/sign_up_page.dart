@@ -3,12 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../../providers/auth_provider.dart';
-import '../../providers/category_provider.dart';
-import '../../providers/product_provider.dart';
 import '../../widgets/custom_button.dart';
 import '../../widgets/footer.dart';
 import '../../widgets/form_input.dart';
 import '../../widgets/header.dart';
+import '../../widgets/loader_dialog.dart';
 
 class SignUpPage extends StatelessWidget {
   final TextEditingController nameController = TextEditingController(text: '');
@@ -25,19 +24,25 @@ class SignUpPage extends StatelessWidget {
     AuthProvider authProvider = Provider.of<AuthProvider>(context);
 
     handleSignUp() async {
+      LoaderDialog(
+        loaderText: 'Signing',
+      ).showLoaderDialog(context);
       if (await authProvider.register(
         name: nameController.text,
         username: usernameController.text,
         email: emailController.text,
         password: passwordController.text,
       )) {
-        await Provider.of<ProductProvider>(context, listen: false)
-            .getProducts();
-        await Provider.of<CategoryProvider>(context, listen: false)
-            .getCategories();
+        LoaderDialog(
+          loaderText: '',
+        ).hideLoaderDialog(context);
+
         Navigator.pushNamedAndRemoveUntil(
             context, '/main-page', (Route<dynamic> route) => false);
       } else {
+        LoaderDialog(
+          loaderText: '',
+        ).hideLoaderDialog(context);
         ScaffoldMessenger.of(context).showSnackBar(
           SnackBar(
             content: Text(
