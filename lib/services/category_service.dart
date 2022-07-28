@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import '../models/category_model.dart';
 
 class CategoryService {
-  String baseUrl = 'https://shamo-backend.buildwithangga.id/api';
+  String baseUrl = 'https://ikayu.herokuapp.com/api';
 
   Future<List<CategoryModel>> getCategories() async {
     var url = '$baseUrl/categories';

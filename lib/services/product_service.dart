@@ -5,7 +5,7 @@ import 'package:http/http.dart' as http;
 import '../models/product_model.dart';
 
 class ProductService {
-  String baseUrl = 'https://shamo-backend.buildwithangga.id/api';
+  String baseUrl = 'https://ikayu.herokuapp.com/api';
 
   Future<List<ProductModel>> getProducts() async {
     var url = '$baseUrl/products';

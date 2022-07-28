@@ -45,7 +45,7 @@ class ProductCard extends StatelessWidget {
               width: 200,
               height: 140,
               fit: BoxFit.cover,
-              imageUrl: productItem.galleries![0].url!,
+              imageUrl: productItem.galleries![0].image!,
               placeholder: (context, url) => new Icon(
                 Icons.broken_image,
                 size: 48,

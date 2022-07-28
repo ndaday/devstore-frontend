@@ -25,8 +25,7 @@ class HomePage extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               HeaderWidget(
-                  titleText: 'Hello, ${user.name}',
-                  subtitleText: '${user.username}'),
+                  titleText: 'Hello, nama', subtitleText: '${user.username}'),
               Icon(
                 Icons.person_pin,
                 size: 60,
