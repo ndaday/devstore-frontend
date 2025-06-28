@@ -19,14 +19,13 @@ class CategoryCard extends StatelessWidget {
       margin: EdgeInsets.only(right: 12),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary: primaryColor,
-          onPrimary: white,
+          foregroundColor: white, backgroundColor: primaryColor,
           textStyle: TextStyle(
               inherit: true, color: primaryTextColor, fontWeight: semiBold),
           shape: StadiumBorder(),
         ).copyWith(
-            backgroundColor: MaterialStateProperty.resolveWith((states) =>
-                states.any((element) => element == MaterialState.selected)
+            backgroundColor: WidgetStateProperty.resolveWith((states) =>
+                states.any((element) => element == WidgetState.selected)
                     ? primaryColor
                     : Colors.grey)),
         onPressed: () {},

@@ -43,7 +43,7 @@ class ChatPage extends StatelessWidget {
                 child: Text('Explore Store'),
                 onPressed: () {},
                 style: ElevatedButton.styleFrom(
-                  primary: primaryColor,
+                  backgroundColor: primaryColor,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(15),
                   ),
